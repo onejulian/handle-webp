@@ -1,11 +1,11 @@
 #!/bin/bash
 
-docker rmi webp-lite
+docker rmi apolo
 
-docker build --no-cache -t webp-lite . --platform linux/amd64
+docker build --no-cache -t apolo . --platform linux/amd64
 
-docker tag webp-lite pulzo/webp-lite:qa
+docker tag apolo pulzo/apolo:qa
 
-docker push pulzo/webp-lite:qa
+docker push pulzo/apolo:qa
 
-docker rmi pulzo/webp-lite:qa
+docker rmi pulzo/apolo:qa
