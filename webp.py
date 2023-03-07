@@ -7,11 +7,15 @@ load_dotenv()
 
 s3_url_pattern = os.getenv("S3_URL_PATTERN")
 endpoint_upload = os.getenv("ENDPOINT_UPLOAD")
+is_prod = int(os.getenv("IS_PROD"))
 
 def convert_to_webp(id_article, ext):
+    folder = "pulzo-dev"
+    if is_prod:
+        folder = "pulzo-lite"
     urls = []
-    folder_crops = "/pulzo-dev/images-cropped/"
-    folder_resized = "/images-resized/"
+    folder_crops = "/"+folder+"/images-cropped/"
+    folder_resized = "/"+folder+"/images-resized/"
     path_crops = s3_url_pattern + folder_crops + id_article
     path_resized = s3_url_pattern + folder_resized + id_article
 
